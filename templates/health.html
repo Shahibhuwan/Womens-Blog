@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block title%} Health{% endblock %}
+{% block content%}
+
+<section id="categoryview">
+  <div class="other-cover-bg">
+      <div class="container">
+        <h3 class="cover-title">Health</h3>
+      </div>  
+  </div>
+</section>
+
+<section id="category-articles">
+   <div class="container">
+    <div class="row">  
+      <div class="col-md-8">
+        <ul class="list-unstyled">
+        {% for post in category.post_set.all%}
+        <li class="media my-4">
+          <div class="cat-blog-image">
+            <img class="mr-3" src="images/w1.jpg" alt="Generic placeholder image">
+          </div>
+          <div class="media-body">
+            <h5 class="mt-0 mb-1"><a href="single.html" target="_self">{{post.title}}</a></h5>
+              <span class="post-time"><i class="fa fa-clock-o"></i>{{post.created_at}}</span>
+            <p>
+          {{ post.description |truncatechars:50}} 
+            </p>          
+          </div>
+        </li>
+        {% endfor %}
+       
+      </ul>
+      </div>
+
+      <div class="col-md-4">
+        <div class="sidebar-categories-box">
+          <h3 class="heading">Categories</h3>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Health<span class="times">(12)</span></li>
+            <li class="list-group-item">Culture<span class="times">(7)</span></li>
+            <li class="list-group-item">Motherhood<span class="times">(12)</span></li>
+            <li class="list-group-item">Travel<span class="times">(12)</span></li>
+            <li class="list-group-item">Lifestyle<span class="times">(12)</span></li>
+          </ul>
+        </div>
+
+        <div class="vertical-ad-section m-top">
+          <div class="ads m-bottom">
+            <img src="images/ads/ad2.jpg" class="img-responsive" alt="">
+          </div>
+          <div class="ads m-bottom">
+            <img src="images/ads/ad3.jpg" class="img-responsive" alt="">
+          </div> 
+        </div>
+
+        <div class="most-readed m-top">
+          <h3 class="heading">Most Readed</h3>
+          <ul class="list-group cat-item-list">
+          {% for post in mostread%}
+          <li class="list-group-item"><a href="{% url 'blog:singlepost' post.slug %}">{{post.title}}</a></li>      
+         {% endfor %}      
+          </ul>
+        </div> 
+
+      </div><!---end of col-md-4-->
+
+    </div>    
+  </div>
+</section>
+
+<section id="pagination">
+  <div class="paginate">
+    <div class="container">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<section id="newsletter">
+ <div class="container">
+    <div class="row">
+    <div class="col-sm-12">
+      <div class="content">
+        <h4>SUBSCRIBE TO OUR NEWSLETTER</h4>
+      <div class="input-group">
+         <input type="email" class="form-control" placeholder="Enter your email">
+         <span class="input-group-btn">
+         <button class="btn" type="submit">Subscribe Now</button>
+         </span>
+      </div>
+      </div><!--end of content-->
+    </div>
+    </div>
+  </div>
+</section>
+{% endblock%}
