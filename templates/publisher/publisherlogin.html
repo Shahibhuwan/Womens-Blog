@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title%}
+Login
+{% endblock %}
+
+
+  {% block content%}  
+<section id="show-breadcrumb">
+  <div class="other-cover-bg">
+      <div class="container">
+        <h3 class="cover-title">Login</h3>
+      </div>  
+  </div>
+</section>
+
+<div class="login_form_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <!-- login_wrapper -->
+                <div class="login_wrapper">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6"> <a href="#" class="btn btn-primary facebook"> <span>Login with Facebook</span> <i class="fa fa-facebook"></i> </a> </div>
+                        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6"> <a href="#" class="btn btn-primary google-plus"> Login with Google <i class="fa fa-google-plus"></i> </a> </div>
+                    </div>
+                    <h2>or</h2>
+                    <form action ="" method="POST">
+ {% csrf_token %}
+ {{form.as_p}}
+ <button class="btn btn-info">Login</button>
+ 
+                    <div class="login_remember_box"> <label class="control control--checkbox">Remember me <input type="checkbox"> <span class="control__indicator"></span> </label> <a href="#" class="forget_password"> Forgot Password </a> </div>
+                    <div class="login_btn_wrapper">  Login  </div>
+                    </form>
+                        <p>Don’t have an account ? <a href="register.html"> Sign up </a> </p>
+                    </div>
+                </div> <!-- /.login_wrapper-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

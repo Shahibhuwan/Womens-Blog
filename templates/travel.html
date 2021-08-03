@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-{% block title%} Health{% endblock %}
+{% block title%} Travel{% endblock %}
 {% block content%}
 
 <section id="categoryview">
   <div class="other-cover-bg">
       <div class="container">
-        <h3 class="cover-title">Health</h3>
+        <h3 class="cover-title">Travel</h3>
       </div>  
   </div>
 </section>
@@ -37,11 +37,11 @@
         <div class="sidebar-categories-box">
           <h3 class="heading">Categories</h3>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Health<span class="times">(12)</span></li>
-            <li class="list-group-item">Culture<span class="times">(7)</span></li>
-            <li class="list-group-item">Motherhood<span class="times">(12)</span></li>
-            <li class="list-group-item">Travel<span class="times">(12)</span></li>
-            <li class="list-group-item">Lifestyle<span class="times">(12)</span></li>
+            <li class="list-group-item"><a href="{%url 'blog:health'%}">Health</a><span class="times">(12)</span></li>
+            <li class="list-group-item"><a href="{%url 'blog:culture'%}">Culture</a><span class="times">(7)</span></li>
+            <li class="list-group-item"><a href="{%url 'blog:motherhood'%}">Motherhood</a><span class="times">(12)</span></li>
+            <li class="list-group-item"><a href="{%url 'blog:travel'%}">Travel</a><span class="times">(12)</span></li>
+            <li class="list-group-item"><a href="{%url 'blog:lifestylefashion'%}">Lifestyle</a><span class="times">(12)</span></li>
           </ul>
         </div>
 
