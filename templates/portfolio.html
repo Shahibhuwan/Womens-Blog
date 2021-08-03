@@ -32,9 +32,9 @@
                             <h6>
                                {{customer.profile.profession}}
                             </h6>
-                            <p class="proile-rating">RANKINGS : <span>{{customer.profile.rating}}/10</span></p>
+                         {%if request.user.publisher%}   <p class="proile-rating">RANKINGS : <span>{{user.publisher.rating}}/10</span></p>{% endif%}
                             {% endif%}
-                            <p class="proile-rating">RANKINGS : <span>{{customer.profile.rating}}/10</span></p>
+                            
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
@@ -116,6 +116,13 @@
                                 {% endif %}
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                
+                                  <div class="row">
+                            <div class="col-md-12">
+                                <label>Your Bio</label><br/>
+                                <p>{{customer.profile.description}}</p>
+                            </div>
+                        </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Experience</label>
@@ -129,7 +136,7 @@
                                         <label>Hourly Rate</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>{{customer.profile.hourty_rate}}</p>
+                                        <p>{{customer.profile.hourtly_rate}}</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -137,7 +144,7 @@
                                         <label>Total Projects</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>{{customer.profile.otal_projects}}</p>
+                                        <p>{{customer.profile.total_projects}}</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -156,12 +163,7 @@
                                         <p>{{customer.profile.availability}}</p>
                                     </div>
                                 </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label>Your Bio</label><br/>
-                                <p>{{customer.profile.description}}</p>
-                            </div>
-                        </div>
+                      
                     </div>
                 </div>
             </div>

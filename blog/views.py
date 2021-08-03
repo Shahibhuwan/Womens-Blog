@@ -255,6 +255,7 @@ class ProfileAdd(LoginRequiredMixin,CreateView):
     
 class ProfileEdit(LoginRequiredMixin,UpdateView):
     model =Profile
+    template_name= "editprofile.html"
     form_class =EditProfileForm
     success_url=reverse_lazy("blog:customerprofile")
 

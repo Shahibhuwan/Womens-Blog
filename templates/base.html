@@ -29,7 +29,7 @@
            {% endif %} 
             {% if request.user.is_authenticated%}
               Welcome, <span class="text-bold"><a href="{% url 'blog:customerprofile' %}">{{ request.user.username}}</a></span>
-              {%  if request.user.customer.profile%} <img class="rounded-circle article-img" src="{{ request.user.customer.profile.image.url }}" width="20px" height="20px" id="img">{% endif%},
+              {%  if request.user.customer.profile%} <img class="rounded-circle article-img" src="{{ request.user.customer.profile.image.url }}" width="30px" height="30px" id="img">{% endif%},
               {% comment %} image {% endcomment %}
                <span class="login"><a href="{% url 'blog:customerlogout' %}">Logout</a></span>
               

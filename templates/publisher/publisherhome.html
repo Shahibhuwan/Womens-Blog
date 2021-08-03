@@ -1,9 +1,0 @@
-{% extends '../base.html' %}
-{% if request.user.publisher%}
-<a href="{% url "blog:home"%}">VISIT SITE</a>
-{% endif%}
-{% block title%}Publisher{% endblock%}
-{% block content %}
-{% comment %} publisher ko data about his profile {% endcomment %}
-<a href="{% url "blog:publishpost"%}">Publish Post</a>
-{% endblock %}
