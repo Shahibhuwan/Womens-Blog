@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-{% block title%} Health{% endblock %}
+{% block title%} Culture{% endblock %}
 {% block content%}
 
 <section id="categoryview">
   <div class="other-cover-bg">
       <div class="container">
-        <h3 class="cover-title">Health</h3>
+        <h3 class="cover-title">Culture</h3>
       </div>  
   </div>
 </section>
@@ -24,7 +24,7 @@
             <h5 class="mt-0 mb-1"><a href="{% url 'blog:singlepost' post.slug %}" target="_self">{{post.title}}</a></h5>
               <span class="post-time"><i class="fa fa-clock-o"></i>{{post.created_at}}</span>
             <p>
-          {{ post.description |truncatechars:50}} 
+          {{ post.description |truncatechars:50| safe}} 
             </p>          
           </div>
         </li>

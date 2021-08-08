@@ -2,7 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils.text import slugify
-#from taggit.managers import TaggableManager
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 
 
@@ -68,7 +69,10 @@ class Post(models.Model):
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True, blank=True)
-    description = models.TextField()
+    #description = models.TextField()
+    #description = RichTextField(blank=Ture)
+    description = RichTextUploadingField(blank=True, config_name='special')
+    #description = RichTextUploadingField(blank=True, config_name='special',external_plugin_resources=[('youtube','/static/blog/ckeditor/ckeditor_plugins/youtube/youtube/','plugin.js')])
     image = models.ImageField(upload_to="post")
     views_count=models.PositiveIntegerField(default=0)
     created_at = models.DateField(auto_now_add=True)

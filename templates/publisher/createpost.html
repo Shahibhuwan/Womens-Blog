@@ -5,6 +5,8 @@
 <hr>
 <form action="" method="POST" enctype="multipart/form-data">
 {% csrf_token %} 
+{% comment %}  for CkEditor {% endcomment %}
+{{ form.media}}
 {{form.as_p }}
  <button class="btn btn-info">Publish</button>
 </form>

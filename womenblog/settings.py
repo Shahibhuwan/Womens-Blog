@@ -40,9 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     #local
     'blog',
-
-     
-    
+    'ckeditor',
+    'ckeditor_uploader'  ,  
     
 # allauth
     'allauth',
@@ -52,6 +51,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
 ]
+CKEDITOR_UPLOAD_PATH ="uploads"
 SITE_ID = 1
 
 MIDDLEWARE = [
@@ -79,9 +79,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 'social_django.context_processors.backends',  # <-- Here
-                # 'social_django.context_processors.login_redirect', # <-- Here
-                # 'django.template.context_processors.request',
+               
             ],
         },
     },
@@ -100,13 +98,6 @@ DATABASES = {
     }
 }
 
-# AUTHENTICATION_BACKENDS = (
-#     'social_core.backends.facebook.FacebookOAuth2',
-    
-
-#     'django.contrib.auth.backends.ModelBackend',
-#        'allauth.account.auth_backends.AuthenticationBackend'
-# )
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -159,11 +150,36 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = "shahibhuwan55555@gmail.com"
 EMAIL_HOST_PASSWORD = "Shahibhuwan55*"
 
-# LOGIN_URL = 'customerlogin'
-# LOGOUT_URL = 'customerlogout'
+
 LOGIN_REDIRECT_URL = 'blog:home'
 
-# SOCIAL_AUTH_FACEBOOK_KEY = '372023590975242'  # App ID
-# SOCIAL_AUTH_FACEBOOK_SECRET = 'e627dad28caf44d286970870df04f525'  # App Secret
-# # SOCIAL_AUTH_URL_NAMESPACE = 'social'
-# #SOCIAL_AUTH_URL_NAMESPACE = "users:social"
+
+#config ther ckeditor
+CKEDITOR_CONFIGS = {
+    'default':
+        {'toolbar': 'Custom',
+         'toolbar_Custom': [
+             ['Styles', 'Format', 'Bold', 'Italic',
+                 'Underline', 'Strike', 'Undo', 'Redo'],
+             ['Link', 'Unlink', 'Anchor'],
+             ['Image', 'Flash', 'Table', 'HorizontalRule'],
+             ['TextColor', 'BGColor'],
+             ['Smiley', 'SpecialChar'],
+             ['Source']
+             
+         ]
+         },
+    'special':
+        {'toolbar': 'Special', 'height': 500,
+         'toolbar_Special':
+             [
+                 ['Format', 'Bold', 'Italic', 'Underline', 'Strike', 'Undo', 'Redo'],
+                 ['Link', 'Unlink', 'Anchor'],
+                 ['HorizontalRule'],
+                 ['TextColor'],
+                 ['Smiley', 'SpecialChar'],
+                 ['Source'],
+                 ['CodeSnippet'],
+             ], 'extraPlugins': 'codesnippet',
+         }
+}

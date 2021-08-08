@@ -37,7 +37,7 @@ class HealthView(TemplateView):
         category = Category.objects.get(title='Health')
         
         all_post = category.post_set.all().order_by("-id")
-        paginator = Paginator(all_post,2)
+        paginator = Paginator(all_post,5)
         page_number =self.request.GET.get("page")
         post_list = paginator.get_page(page_number)
         context['post_list'] = post_list

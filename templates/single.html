@@ -34,7 +34,7 @@
         <img src="{{single.image.url}}" class="img-fluid" alt="Responsive image">
         </div>
         <div class="single-content">
-          <p class="text-justify">{{single.description}}</p>
+          <p class="text-justify">{{single.description| safe}}</p>
         </div>
       </div><!--end of single-page-left-->    
       </div>
@@ -77,7 +77,7 @@
          <div class="media-body">
           <h5 class="mt-0 mb-1"><a href="{% url 'blog:singlepost' post.slug %}" target="_self">{{post.title}}</a></h5>
          <span class="post-time"><i class="fa fa-clock-o"></i>{{post.created_at}}</span> 
-         <p>{{ post.description|truncatechars:30}}</p>
+         <p>{{ post.description| safe}}</p>
          <a class="btn btn-primary" href="{% url 'blog:singlepost' post.slug %}" role="button">Keep Reading</a>
         </div>
       </div>
